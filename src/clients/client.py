@@ -1,9 +1,9 @@
-import pycurl, json, StringIO
+import pycurl, json, io
 
 data = json.dumps({"image_url": "http://upload.wikimedia.org/wikipedia/commons/2/29/Voyager_spacecraft.jpg"})
 url = 'http://localhost/search'
 
-storage = StringIO.StringIO()
+storage = io.StringIO()
 
 c = pycurl.Curl()
 c.setopt(c.URL, str(url))
