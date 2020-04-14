@@ -13,6 +13,7 @@ from bs4 import BeautifulSoup
 if python3:
     import certifi
 from googlecloudapi import getCloudAPIDetails, saveImage
+import os
 
 SEARCH_URL = 'https://www.google.com/searchbyimage?hl=en-US&image_url='
 
@@ -189,8 +190,9 @@ def main():
         search = cross_origin(search)
         print(" * Running with CORS enabled")
 
-
-    app.run(host=args.host, port=args.port)
-
+    port = int(os.environ.get("PORT", 5000))
+    
+    app.run(host=args.host, port=port)
+  
 if __name__ == '__main__':
     main()
